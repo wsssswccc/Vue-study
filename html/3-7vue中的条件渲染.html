@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- <div v-if="show">{{message}}</div>
+        <div v-show="show">{{message}}</div> -->
+
+        <div v-if="show">
+            用户名：<input key="username">
+        </div> 
+        <div v-else>
+            邮箱名：<input key="password">
+        </div> 
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                show: false,
+                //message: "hello world"
+            }
+        })
+    </script>
+</body>
+</html>

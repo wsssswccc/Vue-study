@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">{{content}}</div>
+    <div>{{content}}</div>
+    <script>
+        var app = new Vue({
+            //管理的app区域
+            el: '#app',
+            //一组数据
+            data: {
+                content: 'hello world'
+            }
+        })
+        //设置延时器改变content的内容
+        setTimeout(function(){
+            app.$data.content = 'bye world';
+        },2000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>模板语法</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 插值表达式（即“{{ }}”相当于v-text） -->
+        {{message + ' Lee'}}
+        <div v-text="message + ' Lee'"></div>
+        <div v-html="message + ' Lee'"></div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#root',
+            data: {
+                // message: "<h1>Dell</h1>"   //验证v-text与v-html的不同
+                message: "Dell"
+            }
+        })
+    </script>
+</body>
+</html>

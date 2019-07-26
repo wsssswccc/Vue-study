@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域插槽</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <child>
+            <template slot="header" slot-scope="props">
+                <li>{{props.item}}---{{props.index}}</li>
+                <!-- <h1>{{props.item}}</h1> -->
+            </template>
+            <template slot="footer" slot-scope="user">
+                <h3>{{user.index}}---{{user.item}}</h3>
+            </template>
+        </child>
+    </div>
+    <script>
+        Vue.component('child',{
+            template: `<div>
+                            <ul>
+                                <slot name="header" v-for="(item, index) of list" :item="item" :index="index"></slot>
+                            </ul>
+                            <div>content</div>
+                            <slot name="footer" v-for="(item, index) of userInfor" :item="item" :index="index"></slot> 
+                       </div>`,
+            data: function() {
+                return {
+                    list: [1,2,3,4],
+                    userInfor: {
+                        name: 'Dell',
+                        age: 20,
+                        gender: 'male'
+                    }
+                }
+            }
+        })
+        let vm = new Vue({
+            el: '#root'
+        })
+    </script>
+</body>
+</html>

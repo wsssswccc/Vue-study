@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- <div id="root">
+        <template v-for="(item,index) of list" :key="item.id">
+            <div>
+                {{item.text}}-----{{index}}
+            </div>
+            <span>
+                {{item.text}}
+            </span>
+        </template>
+    </div>
+    <script>
+        //数组的变异方法：push pop shift unshift splice sort reverse
+        let vm = new Vue({
+            el: "#root",
+            data: {
+                list: [
+                    {id: 001,text: "hello"},
+                    {id: 002,text: "Dell"},
+                    {id: 003,text: "Lee"}
+                ]
+            }
+        })
+    </script> -->
+
+
+    <div id="app">
+            <div v-for="(item, key, index) of userInfo">
+                {{item}}----{{key}}----{{index}}
+            </div>
+    </div>
+    <script>
+        //对象的遍历
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                   userInfo: {
+                       name: "Dell",
+                       age: 27,
+                       gender: "male",
+                       salary: "secret"
+                   }
+            }
+        })
+    </script>
+</body>
+</html>

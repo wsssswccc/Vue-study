@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性，方法，侦听器</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{fullName()}}
+        <!-- 方法 -->
+        <!-- {{fullName()}} -->
+        {{age}}
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Dell',
+                lastName: 'Lee',
+                // fullName: 'Dell Lee',
+                age: 28
+            },
+            //侦听器（比起computed，watch虽然也会缓存，但很麻烦）
+            watch: {
+                firstName: function() {
+                    console.log("计算了一次");
+                    this.fullName = this.firstName + " " + this.lastName;
+                },
+                lastName: function() {
+                    console.log("计算了一次");
+                    this.fullName = this.firstName + " " + this.lastName;
+                }
+            }
+            //方法
+            // methods: {
+            //     fullName: function() {
+            //         console.log("计算了一次");
+            //         return this.firstName + " " + this.lastName;
+            //     }
+            // }
+
+            //**计算属性（比起方法methods，computed会缓存，性能更高）
+            // computed: {
+            //     fullName: function() {
+            //         console.log("计算了一次");   //注意：改变age的值不会打印
+            //         return this.firstName + " " + this.lastName;
+            //     }
+            // }
+        })
+    </script>
+</body>
+</html>
